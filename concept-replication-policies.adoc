@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: concept-replication-policies.html 
 keywords: replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, disaster recovery, DR 
-summary: 在NetApp控制台中設定資料複製時，您可能需要協助選擇複製策略。複製策略定義儲存系統如何將資料從來源磁碟區複製到目標磁碟區。 
+summary: 在NetApp Console中設定資料複製時，您可能需要協助選擇複製策略。複製策略定義儲存系統如何將資料從來源磁碟區複製到目標磁碟區。 
 ---
-= 了解NetApp Replication 中所使用的複製策略
+= 了解NetApp Replication中所使用的複製策略
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 在NetApp控制台中設定資料複製時，您可能需要協助選�
 
 
 [role="lead"]
-在NetApp Replication 中設定資料複製時，您可能需要協助選擇複製策略。複製策略定義儲存系統如何將資料從來源磁碟區複製到目標磁碟區。
+在NetApp Replication中設定資料複製時，您可能需要協助選擇複製策略。複製策略定義儲存系統如何將資料從來源磁碟區複製到目標磁碟區。
 
 
 

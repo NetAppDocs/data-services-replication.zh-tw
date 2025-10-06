@@ -1,25 +1,25 @@
 ---
 indexpage:
-  title: NetApp複製文檔
+  title: NetApp Replication文檔
   summary: 在ONTAP儲存系統之間複製數據，以支援到雲端或雲端之間的備份和災難復原。
   keywords: replicate, storage systems, disaster recovery, cloud
   lead: 在ONTAP儲存系統之間複製數據，以支援到雲端或雲端之間的備份和災難復原。
   tiles:
   - title: 開始
     links:
-    - title: 了解NetApp複製
+    - title: 了解NetApp Replication
       url: concept-replication.html
     - title: 設定資料複製
       url: task-replicating-data.html
-  - title: 使用NetApp複製
+  - title: 使用NetApp Replication
     links:
     - title: 管理資料複製
       url: task-managing-replication.html
   - title: 部落格和社區
     links:
-    - title: NetApp控制台
+    - title: NetApp Console
       url: https://www.netapp.com/console
-    - title: NetApp資料服務
+    - title: NetApp Data Services
       url: https://www.netapp.com/data-services/
     - title: NetApp社群
       url: https://community.netapp.com

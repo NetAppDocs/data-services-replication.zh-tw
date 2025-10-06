@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-managing-replication.html 
 keywords: replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, source, destination, schedule, relationship, break, resync, max transfer, maximum transfer rate, rate, transfer rate, reverse resync, status, replication status, disaster recovery, DR, archive, archiving, retention 
-summary: 在兩個系統之間設定資料複製後，您可以從NetApp Replication 管理資料複製計劃和關係。 
+summary: 在兩個系統之間設定資料複製後，您可以從NetApp Replication管理資料複製計劃和關係。 
 ---
-= 在NetApp Replication 中管理資料複製
+= 在NetApp Replication中管理資料複製
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,10 +14,10 @@ summary: 在兩個系統之間設定資料複製後，您可以從NetApp Replica
 
 
 [role="lead"]
-在兩個系統之間設定資料複製後，您可以從NetApp Replication 管理資料複製計劃和關係。
+在兩個系統之間設定資料複製後，您可以從NetApp Replication管理資料複製計劃和關係。
 
 .步驟
-. link:task-login-replication.html["登入NetApp複製"] 。
+. link:task-login-replication.html["登入NetApp Replication"] 。
 . 檢查資料複製關係的狀態以驗證它們是否健康。
 +
 
@@ -66,4 +66,4 @@ NOTE: 當您重新同步磁碟區時，目標磁碟區上的內容將會被來�
 
 
 .結果
-選擇作業後， NetApp Replication 會更新關係或計畫。
+選擇作業後， NetApp Replication會更新關係或計畫。

@@ -4,7 +4,7 @@ permalink: concept-backup-policies.html
 keywords: snapvault, archive, archiving, retention, replication, snapshots, volumes 
 summary: 與鏡像策略不同，備份SnapVault策略將特定的快照副本複製到目標磁碟區。如果您想使用自己的策略而不是預設策略，那麼了解備份策略的工作原理非常重要。 
 ---
-= 了解NetApp Replication 中所使用的備份策略
+= 了解NetApp Replication中所使用的備份策略
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 與鏡像策略不同，備份SnapVault策略將特定的快照副本�
 
 
 [role="lead"]
-與鏡像策略不同，備份（SnapVault）策略使用NetApp Replication 將特定快照副本複製到目標磁碟區。如果您想使用自己的策略而不是預設策略，那麼了解備份策略的工作原理非常重要。
+與鏡像策略不同，備份（SnapVault）策略使用NetApp Replication將特定快照副本複製到目標磁碟區。如果您想使用自己的策略而不是預設策略，那麼了解備份策略的工作原理非常重要。
 
 
 
