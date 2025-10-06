@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: task-managing-replication.html 
+keywords: replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, source, destination, schedule, relationship, break, resync, max transfer, maximum transfer rate, rate, transfer rate, reverse resync, status, replication status, disaster recovery, DR, archive, archiving, retention 
+summary: 在兩個系統之間設定資料複製後，您可以從NetApp Replication 管理資料複製計劃和關係。 
+---
+= 在NetApp Replication 中管理資料複製
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在兩個系統之間設定資料複製後，您可以從NetApp Replication 管理資料複製計劃和關係。
+
+.步驟
+. link:task-login-replication.html["登入NetApp複製"] 。
+. 檢查資料複製關係的狀態以驗證它們是否健康。
++
+
+NOTE: 如果關係的狀態為空閒且鏡像狀態未初始化，則必須從目標系統初始化關係，以便資料複製按照定義的計畫進行。您可以使用系統管理員或命令列介面 (CLI) 初始化該關係。當目標系統發生故障然後重新上線時，可能會出現這些狀態。
+
+. 選擇磁碟區關係的操作選單並選擇其中一個可用操作。
++
+下表描述了可用的操作：
+
++
+[cols="15,85"]
+|===
+| 行動 | 描述 
+
+
+| 資訊 | 顯示有​​關卷關係的詳細資訊：傳輸資訊、上次傳輸資訊、有關磁碟區的詳細資訊以及有關分配給該關係的保護策略的資訊。 
+
+
+| 休息 | 斷開來源磁碟區和目標磁碟區之間的關係，並啟動目標磁碟區以進行資料存取。當來源磁碟區因資料損壞、意外刪除或離線狀態等事件而無法提供資料時，通常會使用此選項。https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["了解如何在ONTAP文件中配置目標磁碟區以進行資料存取並重新啟動來源磁碟區"^] 
+
+
+| 重新同步  a| 
+重新建立磁碟區之間斷開的關係並根據定義的計劃還原資料複製。
+
+
+NOTE: 當您重新同步磁碟區時，目標磁碟區上的內容將會被來源磁碟區上的內容覆寫。
+
+了解如何執行反向重新同步（將資料從目標磁碟區重新同步到來源磁碟區），請前往 https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["ONTAP 文件"^]。
+
+
+
+| 反向重新同步 | 反轉來源磁碟區和目標磁碟區的角色。原始來源磁碟區的內容將被目標磁碟區的內容覆蓋。當您想要重新啟動離線的來源磁碟區時，這很有用。上次資料複製和來源磁碟區停用之間寫入原始來源磁碟區的任何資料都不會保留。 
+
+
+| 編輯時間表 | 使您能夠選擇不同的資料複製計劃。 
+
+
+| 編輯最大傳輸速率 | 使您能夠編輯資料傳輸的最大速率（以每秒千位元組為單位）。 
+
+
+| 更新 | 啟動增量傳輸以更新目標磁碟區。 
+
+
+| 刪除 | 刪除來源磁碟區和目標磁碟區之間的資料保護關係，這表示磁碟區之間不再發生資料複製。此操作不會啟動資料存取的目標磁碟區。 
+|===
+
+
+.結果
+選擇作業後， NetApp Replication 會更新關係或計畫。

@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: concept-replication.html 
+keywords: ontap, cluster, discover, manage, BlueXP, bluexp,hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, disaster recovery, DR, archive, archiving, retention, netapp replication 
+summary: NetApp SnapMirror透過 LAN 或 WAN 高速複製數據，因此您可以在虛擬和傳統環境中獲得高數據可用性和快速數據複製。當您將資料複製到NetApp儲存系統並不斷更新輔助資料時，您的資料將保持最新狀態並在您需要時保持可用。不需要外部複製伺服器。 
+---
+= 了解NetApp複製
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp SnapMirror透過 LAN 或 WAN 高速複製數據，因此您可以在虛擬和傳統環境中獲得高數據可用性和快速數據複製。當您使用NetApp Replication 將資料複製到NetApp儲存系統並不斷更新二級資料時，您的資料將保持最新狀態並在您需要時保持可用。不需要外部複製伺服器。
+
+
+
+== NetApp控制台
+
+可透過NetApp控制台存取NetApp Replication。
+
+NetApp控制台提供企業級跨本機和雲端環境的NetApp儲存和資料服務的集中管理。需要控制台才能存取和使用NetApp資料服務。作為管理介面，它使您能夠從一個介面管理許多儲存資源。控制台管理員可以控制企業內所有系統的儲存和服務的存取。
+
+您不需要許可證或訂閱即可開始使用NetApp控制台，並且只有當您需要在雲端部署控制台代理程式以確保與儲存系統或NetApp資料服務的連接時才需要付費。但是，一些可從控制台存取的NetApp資料服務是需要授權或基於訂閱的。
+
+詳細了解 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["NetApp控制台"]。
+
+
+
+== 特徵
+
+* 在ONTAP儲存系統之間複製數據，以支援到雲端或雲端之間的備份和災難復原。
+* 透過高可用性確保您的 DR 環境的可靠性。
+* ONTAP儲存之間的高效區塊級複製快速且高效，並具有用於 DR 和備份的細粒度還原點。
+
+
+
+
+== 成本
+
+NetApp不會向您收取使用NetApp Replication 的費用，但您需要向您的雲端供應商檢查適用的資料入口和出口費用。
+
+
+
+== 支援的系統
+
+NetApp Replication 支援以下類型的系統之間的資料複製。
+
+[cols="30,30"]
+|===
+| 來源系統 | 支援的目標系統 
+
+
+| Cloud Volumes ONTAP  a| 
+* 適用於ONTAP 的Amazon FSx
+* Cloud Volumes ONTAP
+* 本地ONTAP集群
+
+
+
+
+| 本地ONTAP集群  a| 
+* 適用於ONTAP 的Amazon FSx
+* Cloud Volumes ONTAP
+* 本地ONTAP集群
+
+
+
+
+| 適用於ONTAP 的Amazon FSx  a| 
+* 適用於ONTAP 的Amazon FSx
+* Cloud Volumes ONTAP
+* 本地ONTAP集群
+
+
+|===
+
+
+== 資料複製的工作原理
+
+NetApp Replication 使用SnapMirror和SnapVault技術簡化了不同ONTAP系統上的磁碟區之間的資料複製。您只需識別來源磁碟區和目標卷，然後選擇複製策略和計劃。
+
+對於Cloud Volumes ONTAP， NetApp Replication 會購買所需的磁碟、設定關係、套用複製策略，然後啟動磁碟區之間的基準傳輸。
+
+
+NOTE: 基線傳輸包括來源資料的完整副本。後續傳輸包含來源資料的差異副本。
+
+
+
+== 支援的資料保護配置
+
+NetApp Replication 支援簡單、扇出和級聯資料保護配置：
+
+* 在簡單的配置中，複製從磁碟區 A 發生到磁碟區 B。
+* 在扇出配置中，複製從磁碟區 A 發生到多個目標。
+* 在級聯配置中，複製從磁碟區 A 發生到磁碟區 B，再從磁碟區 B 發生到磁碟區 C。
+
+
+
+
+== 使用NetApp備份和恢復複製數據
+
+從NetApp控制台代理 3.9.31 版本開始， NetApp Backup and Recovery 允許您使用SnapMirror和SnapVault技術在單獨的ONTAP系統上的磁碟區之間複製資料。因此，如果您打算將資料複製到其他ONTAP系統，並且還希望將相同資料建立到物件儲存的備份，則可能需要使用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["NetApp備份與復原"^]這樣您就可以透過單一服務來管理您的資料保護需求。
+
+目前，以下功能僅在NetApp Replication 中支援 - 使用NetApp Backup and Recovery 的複製功能時不受支援。
+
+* 不支援從磁碟區 A 到磁碟區 B，再從磁碟區 B 到磁碟區 C 的級聯配置。
+* 不支援將資料複製到 FSx for ONTAP 系統或從 FSx for ONTAP系統複製資料。
+* 不支援創建卷的一次性複製。
+
+
+因此，如果您需要任何此功能，請使用NetApp Replication。

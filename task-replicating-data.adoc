@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: task-replicating-data.html 
+keywords: ontap, cluster, discover, manage, BlueXP, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, max transfer, maximum transfer rate, rate, transfer rate, intercluster lif, replication requirement, requirements, disaster recovery, DR, archive, archiving, retention, amazon fsx for ontap, fsx for ontap 
+summary: 您可以透過選擇一次性資料複製進行資料傳輸，或選擇定期規劃進行災難復原或長期保留，在ONTAP系統之間複製資料。例如，您可以設定從本機ONTAP系統到Cloud Volumes ONTAP 的資料複製，以實現災難復原。 
+---
+= 在NetApp Replication 中設定資料複製
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用NetApp Replication，透過選擇一次性資料複製進行資料傳輸，或選擇定期規劃進行災難復原或長期保留，在ONTAP系統之間複製資料。例如，您可以設定從本機ONTAP系統到Cloud Volumes ONTAP 的資料複製，以實現災難復原。
+
+
+
+== 步驟 1：審查資料複製要求
+
+在複製資料之前，您應該確認符合Cloud Volumes ONTAP、本機ONTAP叢集或Amazon FSx for ONTAP的特定要求。
+
+系統:: 如果您還沒有這樣做，您需要為資料複製關係中的來源和目標建立系統。
++
+--
+* https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html["建立Amazon FSx for ONTAP系統"^]
+* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-overview-cvo.html["建立Cloud Volumes ONTAP系統"^]
+* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-adding-systems.html["新增現有的Cloud Volumes ONTAP系統"^]
+* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["發現ONTAP集群"^]
+
+
+--
+版本要求:: 在複製資料之前，您應該驗證來源磁碟區和目標磁碟區是否執行相容的ONTAP版本。
++
+--
+https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["查看與SnapMirror關係相容的ONTAP版本"^]
+
+--
+Cloud Volumes ONTAP 的特定要求::
++
+--
+* 實例的安全性群組必須包含所需的入站和出站規則：具體來說，ICMP 和連接埠 11104 和 11105 的規則。
++
+這些規則包含在預先定義的安全性群組中。
+
+* 要在不同子網路中的兩個Cloud Volumes ONTAP系統之間複製數據，子網路必須一起路由（這是預設）。
+* 若要在不同雲端供應商的兩個Cloud Volumes ONTAP系統之間複製數據，您必須在虛擬網路之間建立 VPN 連線。
+
+
+--
+ONTAP叢集的特定要求::
++
+--
+* 必須安裝有效的SnapMirror授權。
+* 如果叢集位於您的場所，您應該從公司網路連接到雲端中的虛擬網路。這通常是 VPN 連線。
+* ONTAP叢集必須滿足額外的子網路、連接埠、防火牆和叢集要求。
++
+https://docs.netapp.com/us-en/ontap/peering/prerequisites-cluster-peering-reference.html#connectivity-requirements["查看ONTAP文件中的叢集對等前提條件"^]
+
+
+
+--
+Amazon FSx for ONTAP 的特定需求::
++
+--
+* 如果Cloud Volumes ONTAP是關係的一部分，請透過啟用 VPC 對等或使用 Transit Gateway 確保 VPC 之間的連線。
+* 如果本機ONTAP叢集是關係的一部分，請使用 Direct Connect 或 VPN 連線確保本機網路與 AWS VPC 之間的連線。
+
+
+--
+
+
+
+
+== 步驟 2：在系統之間複製數據
+
+您可以透過選擇一次性資料複製來複製數據，這可以幫助您將資料移入和移出雲端，或選擇定期計劃，這可以幫助災難復原或長期保留。
+
+.步驟
+. 從導覽選單中，選擇*儲存>管理*。
+. 在系統頁面上，選擇包含來源磁碟區的系統，將其拖曳到要複製磁碟區的系統，然後選擇*複製*。
++
+其餘步驟提供如何在Cloud Volumes ONTAP或本機ONTAP叢集之間建立同步關係的範例。
+
+. *來源和目標對等設定*：如果出現此頁面，請選擇群集對等關係的所有群集間 LIF。
++
+應配置集群間網絡，以便集群對等體具有_成對全網狀連接_，這意味著集群對等關係中的每對集群在其所有集群間 LIF 之間都具有連接。
+
++
+如果具有多個 LIF 的ONTAP叢集是來源或目標，則會出現這些頁面。
+
+. *來源磁碟區選擇*：選擇您想要複製的磁碟區。
+. *目標磁碟類型和分層*：如果目標是Cloud Volumes ONTAP系統，請選擇目標磁碟類型並選擇是否要啟用資料分層。
+. *目標磁碟區名稱*：指定目標磁碟區名稱並選擇目標聚合。
++
+如果目標是ONTAP集群，則也必須指定目標儲存虛擬機器。
+
+. *最大傳輸速率*：指定資料傳輸的最大速率（以兆位元組/秒為單位）。
++
+您應該限制傳輸速率。無限速率可能會對其他應用程式的效能產生負面影響，也可能會影響您的網路效能。
+
+. *複製策略*：選擇預設策略或選擇*附加策略*，然後選擇其中一個進階策略。
++
+如需協助，link:concept-replication-policies.html["了解複製策略"] 。
+
++
+如果您選擇自訂備份 (SnapVault) 策略，則與該原則關聯的標籤必須與來源磁碟區上的快照副本的標籤相符。欲了解更多信息，link:concept-backup-policies.html["了解備份策略的工作原理"] 。
+
+. *時間表*：選擇一次複製或重複時間表。
++
+有多個預設時間表可用。如果您想要不同的計劃，則必須使用系統管理員在目標叢集上建立新的計劃。
+
+. *審查*：審查您的選擇並選擇*開始*。
+
+
+.結果
+NetApp Replication 啟動資料複製程序。您可以從NetApp Replication 查看有關磁碟區關係的詳細資訊。

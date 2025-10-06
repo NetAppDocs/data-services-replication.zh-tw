@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: concept-replication-policies.html 
+keywords: replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, disaster recovery, DR 
+summary: 在NetApp控制台中設定資料複製時，您可能需要協助選擇複製策略。複製策略定義儲存系統如何將資料從來源磁碟區複製到目標磁碟區。 
+---
+= 了解NetApp Replication 中所使用的複製策略
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在NetApp Replication 中設定資料複製時，您可能需要協助選擇複製策略。複製策略定義儲存系統如何將資料從來源磁碟區複製到目標磁碟區。
+
+
+
+== 複製策略的作用
+
+ONTAP作業系統會自動建立稱為快照副本的備份。快照副本是磁碟區的唯讀映像，可擷取某個時間點的檔案系統狀態。
+
+在系統之間複製資料時，您會將快照副本從來源磁碟區複製到目標磁碟區。複製策略指定要從來源磁碟區複製到目標磁碟區的快照副本。
+
+
+TIP: 複製策略也稱為_保護_策略，因為它們由SnapMirror和SnapVault技術提供支持，這些技術提供災難復原保護和磁碟到磁碟的備份和復原。
+
+下圖顯示了快照副本和複製策略之間的關係：
+
+image:diagram_replication_policies.png["此圖顯示了來源磁碟區上的快照副本以及指定將所有或特定快照副本從來源磁碟區複製到目標磁碟區的複製策略。"]
+
+
+
+== 複製策略的類型
+
+複製策略有三種類型：
+
+* _鏡像_策略將新建立的快照副本複製到目標磁碟區。
++
+您可以使用這些快照副本來保護來源卷，為災難復原或一次性資料複製做好準備。您可以隨時啟動目標磁碟區以進行資料存取。
+
+* _備份_策略將特定的快照副本複製到目標卷，並且通常將其保留的時間比在來源卷上保留的時間更長。
++
+當資料損壞或遺失時，您可以從這些快照副本中復原數據，並保留它們以滿足標準合規性和其他與治理相關的目的。
+
+* _鏡像和備份_策略提供災難復原和長期保留。
++
+每個系統都包含一個預設的鏡像和備份策略，適用於許多情況。如果您發現需要自訂策略，則可以使用系統管理員建立自己的策略。
+
+
+
+下圖顯示了鏡像和備份策略之間的差異。鏡像策略可鏡像來源磁碟區上可用的快照副本。
+
+image:diagram_replication_snapmirror.png["此圖顯示了來源磁碟區上的快照副本以及鏡像來源磁碟區的鏡像目標磁碟區。"]
+
+備份策略保留快照副本的時間通常比在來源磁碟區上保留的時間長：
+
+image:diagram_replication_snapvault.png["此圖顯示了來源磁碟區和備份目標磁碟區上的快照副本，其中包含更多快照副本，因為SnapVault會保留快照副本以供長期保留。"]
