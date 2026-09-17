@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task-support-registration.html 
-keywords: support registration, register for support, support, nss account, add nss account, 
+keywords: support registration, register for support, support, nss account, add nss account 
 summary: 在向 NetApp 技術支援開啟支援案例之前，您需要將 NetApp 支援網站帳戶新增至您的 Console 帳戶，然後註冊以獲得支援。 
 ---
 = 註冊以獲得支持

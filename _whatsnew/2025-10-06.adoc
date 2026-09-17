@@ -14,6 +14,6 @@ BlueXP replication已重新命名為NetApp Replication。
 [[bluexp-is-now-netapp-console]]
 === BlueXP現在是NetApp Console
 
-NetApp Console建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp Data Services，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。
+NetApp Console 建立於加強且重構的 BlueXP 基礎上，提供企業級的集中式管理，涵蓋本地端與雲端環境中的 NetApp 儲存與 NetApp Data Services，帶來即時洞察、更快速的工作流程，以及高度安全且合規的簡化管理。
 
 如需變更的詳細資訊，請參閱 link:https://docs.netapp.com/us-en/console-relnotes/index.html["NetApp Console發行說明"]。

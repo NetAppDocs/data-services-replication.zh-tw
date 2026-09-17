@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: faq-replication.html 
+keywords: faq, frequently asked questions, snapmirror, snapvault, replication policies, backup policies, data protection, cloud volumes ontap, amazon fsx, ontap, mirror, backup, cascade, fanout 
+summary: 檢閱有關 NetApp Replication 的常見問題，包括支援的設定以及如何解決常見問題。 
+---
+= NetApp Replication 常見問題
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+本常見問題解答了有關 NetApp Replication 的常見問題。它重點介紹了在設定、管理和疑難排解 ONTAP 系統、Cloud Volumes ONTAP 和 Amazon FSx for ONTAP 之間的複寫關係時有用的概念、術語和行為。
+
+
+
+[[general-concepts]]
+== 一般概念
+
+.複寫支援哪些來源和目標系統組合？
+複寫支援 Amazon FSx for ONTAP、Cloud Volumes ONTAP 和內部部署 ONTAP。您可以在這三個系統的任何系統之間設定複寫。
+
+.複寫支援哪些資料保護設定？
+複寫支援三種組態：
+
+* *簡單*：複寫從 Volume A 到 Volume B。
+* *扇出*：複寫從 Volume A 進行至多個目的地。
+* *級聯*：複寫從 Volume A 到 Volume B，然後從 Volume B 到 Volume C。
+
+
+.首次複寫傳輸與後續傳輸有何不同？
+基礎傳輸包含來源資料的完整複本。後續傳輸僅包含來源資料的差異（遞增）複本。
+
+.使用複寫需要付費嗎？
+NetApp 不會對使用複寫本身收取費用，但您應該向雲端供應商確認適用的資料傳入和傳出費用。當您部署 Console 代理程式以連線至儲存設備系統或資料服務時，NetApp Console 會產生費用；可從 Console 存取的某些其他 NetApp 資料服務是採用授權或訂閱制。
+
+.我需要授權或訂閱才能使用複寫嗎？
+您無需授權或訂閱即可開始使用 Console 或複寫。對於內部部署的 ONTAP 組態，必須安裝作用中的 SnapMirror 授權。
+
+
+
+[[replication-policies]]
+== 複寫原則
+
+.鏡射原則和備份原則有什麼不同？
+複製策略有三種類型：
+
+* *鏡射*：將新建立的快照複本複寫到目的地 Volume，可用於災難恢復準備或一次性資料複寫；您可以隨時啟動目的地 Volume 以進行資料存取。
+* *備份*：將特定標記的快照複本複寫到目的地 Volume，並且通常比在來源 Volume 上保留的時間更長，這對於還原毀損或遺失的資料以及出於法規遵循/治理目的非常有用。
+* *鏡射和備份*：結合了災難恢復和長期保留，是每個系統都包含的預設原則。
+
+
+如果預設原則無法滿足您的需求，您可以使用 System Manager 建立自訂原則。
+
+.為什麼我的備份原則沒有複寫任何快照複本？
+備份原則僅複寫標籤與來源 Volume 快照原則中定義的標籤相符的快照複本。如果自訂備份原則中的標籤與快照原則中的任何標籤都不相符，則系統無法複寫任何快照複本。例如，標籤為「daily」和「weekly」的備份原則僅複寫具有這些標籤的快照複本。
+
+.如果我使用預設原則，預設的快照保留設定是什麼？
+預設快照原則會建立每小時、每天和每週的快照複本，分別保留 6 個每小時複本、2 個每天複本和 2 個每週複本。預設備份原則複寫每日和每週的快照複本；它保留 7 個每日和 52 個每週的快照複本。
+
+
+
+[[setting-up-replication]]
+== 設定複寫
+
+.在設定資料複寫之前需要檢查哪些內容？
+在複寫資料之前，請確認以下事項：
+
+* 來源和目標系統已經存在（或建立它們）。
+* 請確認來源和目的地 Volume 執行相容的 ONTAP 版本；請參閱 link:https://docs.netapp.com/us-en/ontap/data-protection/compatible-ontap-versions-snapmirror-concept.html["相容的 ONTAP 版本"^]。
+* 請確保您已滿足 link:task-replicating-data.html["資料複寫要求"] 的系統特定要求。
+
+
+.要使叢集對等關係透過叢集間 LIF 正常運作，需要滿足哪些條件？
+叢集間網路應設定為叢集對等節點之間具有成對的完全網狀連線，這表示叢集對等關係中的每對叢集在其所有叢集間 LIF 之間皆具有連線。當具有多個 LIF 的 ONTAP 叢集作為來源或目的地時，即適用此情況。
+
+.我可以建立自訂複寫排程嗎？
+設定複寫時，有幾個預設排程可供使用。如果需要不同的排程，則必須使用 System Manager 在目的地叢集上建立新排程。
+
+
+
+[[managing-replication-relationships]]
+== 管理複寫關係
+
+.如果複寫關係顯示閒置狀態和未初始化的鏡射狀態，這代表什麼？
+當目的地系統發生故障後又恢復線上時，可能會發生這種情況。您必須使用 System Manager 或 CLI 從目的地系統初始化關係，資料複寫才能依照定義的排程恢復。
+
+.中斷、重新同步和反向重新同步操作之間有什麼區別？
+這些動作會產生不同的效果：
+
+* *中斷*：中斷來源與目的地 Volume 之間的關係，並啟動目的地 Volume 以進行資料存取。通常用於來源 Volume 因毀損、刪除或離線狀態而無法提供資料的情況。
+* *重新同步*：重新建立中斷的關係並依排程恢復複寫；目的地 Volume 上的內容會被來源 Volume 的內容覆寫。
+* *反向同步*：反轉來源和目的地 Volume 的角色，以目的地的內容覆寫原始來源 Volume 的內容。在上次複寫與其離線之間寫入原始來源 Volume 的任何資料都不會保留。
+
+
+.如果我刪除複寫關係會發生什麼事？
+刪除來源和目的地 Volume 之間的資料保護關係會終止 Volume 之間的資料複寫，從目的地站台刪除 SnapMirror 關係，並釋放來源站台上的關係。此操作也會中斷該 SnapMirror 關係，使目的地 Volume 短暫地成為讀寫操作的主站台，以便在移除複寫後可以獨立使用目的地。
+
+.為什麼要限制最大傳輸率而不是保持無限？
+無限制的傳輸率可能會對其他應用程式的效能和您的網際網路效能產生負面影響。設定複寫時，您應該限制最大傳輸率（以每秒 MB 數為單位），之後您可以從「複寫狀態」頁面進行編輯。

@@ -20,9 +20,6 @@ summary: 使用NetApp Console登入NetApp Replication。
 
 .步驟
 . 開啟 Web 瀏覽器並前往 https://console.netapp.com/["NetApp Console"^]。
-+
-出現NetApp Console登入頁面。
-
 . 登入控制台。
 . 從控制台左側導覽中，選擇*保護*>*複製*。
 

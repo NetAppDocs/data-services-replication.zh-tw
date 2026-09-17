@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-replicating-data.html 
 keywords: ontap, cluster, discover, manage, BlueXP, hybrid cloud, replication policy, policy, replication, replicating, snapmirror, snapvault, data replication, fanout, cascade, source, destination, schedule, relationship, max transfer, maximum transfer rate, rate, transfer rate, intercluster lif, replication requirement, requirements, disaster recovery, DR, archive, archiving, retention, amazon fsx for ontap, fsx for ontap 
-summary: 您可以透過選擇一次性資料複製進行資料傳輸，或選擇定期規劃進行災難復原或長期保留，在ONTAP系統之間複製資料。例如，您可以設定從本機ONTAP系統到Cloud Volumes ONTAP 的資料複製，以實現災難復原。 
+summary: 您可以選擇用於資料傳輸的一次性資料複寫，或是用於災難恢復或長期保留的定期排程，在 ONTAP 系統之間複寫資料。例如，您可以設定從內部部署 ONTAP 系統到 Cloud Volumes ONTAP 的資料複寫，以進行災難恢復。 
 ---
 = 在NetApp Replication中設定資料複製
 :hardbreaks:
@@ -21,7 +21,7 @@ summary: 您可以透過選擇一次性資料複製進行資料傳輸，或選�
 [[step-1-review-data-replication-requirements]]
 == 步驟 1：審查資料複製要求
 
-在複製資料之前，您應該確認符合Cloud Volumes ONTAP、本機ONTAP叢集或Amazon FSx for ONTAP的特定要求。
+在複寫資料之前，您應該確認 Cloud Volumes ONTAP、內部部署 ONTAP 叢集或 Amazon FSx for ONTAP 是否符合特定要求。
 
 系統:: 如果您還沒有這樣做，您需要為資料複製關係中的來源和目標建立系統。
 +
@@ -67,7 +67,7 @@ Amazon FSx for ONTAP 的特定需求::
 +
 --
 * 如果Cloud Volumes ONTAP是關係的一部分，請透過啟用 VPC 對等或使用 Transit Gateway 確保 VPC 之間的連線。
-* 如果本機ONTAP叢集是關係的一部分，請使用 Direct Connect 或 VPN 連線確保本機網路與 AWS VPC 之間的連線。
+* 如果內部部署 ONTAP 叢集是關係的一部分，請使用 Direct Connect 或 VPN 連線，確保內部部署網路與 AWS VPC 之間的連線。
 
 
 --
@@ -84,7 +84,7 @@ Amazon FSx for ONTAP 的特定需求::
 . 從導覽選單中，選擇*儲存>管理*。
 . 在系統頁面上，選擇包含來源磁碟區的系統，將其拖曳到要複製磁碟區的系統，然後選擇*複製*。
 +
-其餘步驟提供如何在Cloud Volumes ONTAP或本機ONTAP叢集之間建立同步關係的範例。
+其餘步驟提供了一個範例，說明如何在 Cloud Volumes ONTAP 或內部部署 ONTAP 叢集之間建立同步關係。
 
 . *來源和目標對等設定*：如果出現此頁面，請選擇群集對等關係的所有群集間 LIF。
 +
