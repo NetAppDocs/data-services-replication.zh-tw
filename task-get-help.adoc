@@ -11,63 +11,66 @@ summary: 'NetApp以多種方式為NetApp Console提供支援。全天候提供�
 
 
 [role="lead"]
-NetApp以多種方式為BlueXP及其雲端服務提供支援。我們提供全天候 (24/7) 的大量免費自助支援選項，例如知識庫 (KB) 文章和社群論壇。您的支援註冊包含透過網路工單取得的遠端技術支援。
+NetApp 以多種方式為 NetApp Console 及其雲端服務提供支援。全年無休提供豐富的免費自助支援選項，例如知識庫 （KB） 文章和社群論壇。您的支援註冊包含透過網路開立工單的遠端技術支援。
 
 
 
+[[get-support-for-a-cloud-provider-file-service]]
 == 獲取雲端提供者文件服務的支持
 
-有關雲端提供者文件服務、其基礎設施或使用該服務的任何解決方案的技術支持，請參閱該產品的BlueXP文件中的「取得協助」。
+如需雲端供應商檔案服務、其基礎架構或使用該服務之任何解決方案的相關技術支援，請參閱該產品的說明文件。
 
-* link:https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/concept-fsx-aws.html#getting-help["適用於ONTAP 的Amazon FSx"^]
-* link:https://docs.netapp.com/us-en/bluexp-azure-netapp-files/concept-azure-netapp-files.html#getting-help["Azure NetApp Files"^]
-* link:https://docs.netapp.com/us-en/bluexp-google-cloud-netapp-volumes/concept-gcnv.html#getting-help["Google Cloud NetApp Volumes"^]
-
-
-要獲得針對BlueXP及其儲存解決方案和服務的技術支持，請使用下面所述的支援選項。
+* link:https://docs.netapp.com/us-en/storage-management-fsx-ontap/start/concept-fsx-aws.html#getting-help["適用於ONTAP 的Amazon FSx"^]
+* link:https://docs.netapp.com/us-en/storage-management-azure-netapp-files/concept-azure-netapp-files.html#getting-help["Azure NetApp Files"^]
+* link:https://docs.netapp.com/us-en/storage-management-google-cloud-netapp-volumes/concept-gcnv.html#getting-help["Google Cloud NetApp Volumes"^]
 
 
+若要獲得針對 NetApp 及其儲存解決方案和資料服務的特定技術支援，請使用下面描述的支援選項。
 
+
+
+[[use-self-support-options]]
 == 使用自助選項
 
 這些選項每週 7 天、每天 24 小時免費提供：
 
 * 文件
 +
-您目前正在檢視的BlueXP文件。
+您目前正在檢視的 NetApp Console 文件。
 
 * https://kb.netapp.com/Cloud/BlueXP["知識庫"^]
 +
-搜尋BlueXP知識庫以尋找有助於解決問題的文章。
+搜尋 NetApp 知識庫，尋找有助於疑難排解問題的文章。
 
 * http://community.netapp.com/["社群"^]
 +
-加入BlueXP社群以關注正在進行的討論或創建新的討論。
+加入 NetApp Console 社群，參與現有討論或建立新討論。
 
 
 
 
 
+[[create-a-case-with-netapp-support]]
 == 向NetApp支援建立案例
 
 除了上述自助支援選項之外，您還可以在啟動支援後與NetApp支援專家合作解決任何問題。
 
 .開始之前
-* 若要使用「建立案例」功能，您必須先將您的NetApp支援網站憑證與您的BlueXP登入名稱關聯。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-user-credentials.html["了解如何管理與BlueXP登入相關的憑證"^] 。
+* 若要使用「建立案例」功能，您必須先將 NetApp 支援網站憑證與 Console 登入資訊關聯 https://docs.netapp.com/us-en/bluexp-setup-admin/task-manage-user-credentials.html["了解如何管理與您的 Console 登入相關的認證資料"^]。
 * 如果您要為具有序號的ONTAP系統開啟案例，那麼您的 NSS 帳戶必須與該系統的序號相關聯。
 
 
 .步驟
-. 在BlueXP中，選擇 *幫助 > 支持*。
+. 在 NetApp Console 中，選取 *說明 > 支援*。
 . 在「*資源*」頁面上，選擇「技術支援」下的可用選項之一：
 +
 .. 如果您想透過電話與某人交談，請選擇「致電我們」。您將被引導至 netapp.com 上的一個頁面，其中列出了您可以撥打的電話號碼。
 .. 選擇「建立案例」向NetApp支援專家開立票據：
 +
-*** *服務*：選擇與問題相關的服務。例如， BlueXP專門針對服務中的工作流程或功能的技術支援問題。
-*** *工作環境*：如果適用於存儲，請選擇* Cloud Volumes ONTAP* 或 *On-Prem*，然後選擇相關的工作環境。
+*** *服務*：選擇與問題相關的服務。例如，當問題具體涉及 Console 內的工作流程或功能的技術支援問題時，請選擇 *NetApp Console*。
+*** *系統*：如果適用於儲存設備，請選擇 *Cloud Volumes ONTAP* 或 *內部部署*，然後選擇相關的工作環境。
 +
-工作環境清單屬於您在服務頂部橫幅中所選的BlueXP組織（或帳戶）、專案（或工作區）和連接器的範圍內。
+系統清單位於 Console 組織和您在頂部橫幅中選擇的 Console 代理程式的範圍內。
 
 *** *個案優先級*：選擇個案的優先級，可以是低、中、高或嚴重。
 +
@@ -84,7 +87,7 @@ NetApp以多種方式為BlueXP及其雲端服務提供支援。我們提供全�
 
 
 +
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/screenshot-create-case.png["建立案例表單的螢幕截圖，可讓您向NetApp支援建立案例。"]
+image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/screenshot-create-case.png["建立案例表單的螢幕截圖，可讓您向NetApp支援建立案例。"]
 
 
 
@@ -97,19 +100,17 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/scre
 
 “您無權針對所選服務建立案例”
 
-此錯誤可能表示 NSS 帳戶及其關聯的記錄公司與BlueXP帳戶序號的記錄公司不是同一家（即。960xxxx）或工作環境序號。您可以使用以下選項之一尋求協助：
+此錯誤可能表示 NSS 帳戶及其關聯的註冊公司，與 NetApp Console 帳戶序號（例如960xxxx）或工作環境序號對應的註冊公司不一致。您可以透過下列其中一種方式尋求協助：
 
-* 使用產品內聊天
 * 提交非技術案例 https://mysupport.netapp.com/site/help[]
 
 
 
 
-== 管理您的支援案例（預覽）
+[[manage-your-support-cases]]
+== 管理您的支援案例
 
-您可以直接從BlueXP查看和管理活動和已解決的支援案例。您可以管理與您的 NSS 帳戶和公司相關的案例。
-
-案例管理目前可作為預覽版。我們計劃在即將發布的版本中完善這種體驗並增加增強功能。請使用產品內聊天向我們發送回饋。
+您可以直接透過 Console 查看和管理正在進行和已解決的支援案例。您可以管理與您的 NSS 帳戶和公司關聯的案例。
 
 請注意以下事項：
 
@@ -130,29 +131,20 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/scre
 
 
 .步驟
-. 在BlueXP中，選擇 *幫助 > 支持*。
-. 選擇*案例管理*，如果出現提示，請將您的 NSS 帳戶新增至BlueXP。
+. 在 NetApp Console 中，選取 *說明 > 支援*。
+. 選擇 *Case Management* ，如果系統提示，請將您的 NSS 帳戶新增至 Console 。
 +
-*案例管理*頁面顯示與您的BlueXP使用者帳戶相關的 NSS 帳戶相關的未結案例。這與出現在 *NSS 管理* 頁面頂部的 NSS 帳戶相同。
+* 案例管理 * 頁面顯示與您的 Console 使用者帳戶相關聯的 NSS 帳戶相關的未結案例。這與顯示在 *NSS 管理*頁面頂端的 NSS 帳戶相同。
 
 . （可選）修改表中顯示的資訊：
 +
 ** 在「組織的案例」下，選擇「查看」以查看與您的公司相關的所有案例。
 ** 透過選擇精確的日期範圍或選擇不同的時間範圍來修改日期範圍。
-+
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/screenshot-case-management-date-range.png["案例管理頁面表格上方選項的螢幕截圖，可讓您選擇確切的日期範圍或過去 7 天、30 天或 3 個月。"]
-
 ** 過濾列的內容。
-+
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/screenshot-case-management-filter.png["狀態列中的篩選選項的螢幕截圖，可讓您篩選出符合特定狀態（例如「活動」或「已關閉」）的案例。"]
-
-** 透過選擇image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/icon-table-columns.png["表格中出現的加號圖標"]然後選擇您想要顯示的列。
-+
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/screenshot-case-management-columns.png["螢幕截圖顯示了您可以在表格中顯示的列。"]
+** 選取 image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/icon-table-columns.png["表格中出現的加號圖標"]，然後選擇要顯示的欄，即可變更表格中顯示的欄。
 
 
-
-. 透過選擇管理現有案例image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/icon-table-action.png["表格最後一列出現的帶有三個點的圖標"]並選擇其中一個可用選項：
+. 透過選取 image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/icon-table-action.png["表格最後一列出現的帶有三個點的圖標"] 並選取其中一個可用選項來管理現有案例：
 +
 ** *查看案例*：查看有關特定案例的完整詳細資訊。
 ** *更新案例說明*：提供有關您的問題的更多詳細信息，或選擇*上傳文件*以附加最多五個文件。
@@ -161,8 +153,5 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/scre
 
 ** *結案*：提供有關結案原因的詳細信息，然後選擇*結案*。
 
-
-+
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-family/main/media/screenshot-case-management-actions.png["螢幕截圖顯示了選擇表格最後一列的選單後可以採取的動作。"]
 
 

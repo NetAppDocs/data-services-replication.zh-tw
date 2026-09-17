@@ -16,8 +16,16 @@ summary: 在兩個系統之間設定資料複製後，您可以從NetApp Replica
 [role="lead"]
 在兩個系統之間設定資料複製後，您可以從NetApp Replication管理資料複製計劃和關係。
 
+以 FSx for ONTAP 檔案系統為來源或目標的複寫關係是在 NetApp Workload Factory 中代管。您可以從 Console 系統頁面選取 FSx for ONTAP 檔案系統來管理這些關係。
+
 .步驟
 . link:task-login-replication.html["登入NetApp Replication"] 。
++
+繼續執行步驟 2，以管理非 FSx for ONTAP 複寫關係。
+
++
+若要管理與 FSx for ONTAP 檔案系統的複寫關係，在您登入 NetApp Console 後，請前往 *Storage* > *Management* > *Systems*。然後選取 FSx for ONTAP 檔案系統。現在您已位於 Workload Factory 的 FSx for ONTAP 資源畫面。選取 *Replication relationships* 索引標籤，以檢視和管理檔案系統的複寫關係。
+
 . 檢查資料複製關係的狀態以驗證它們是否健康。
 +
 

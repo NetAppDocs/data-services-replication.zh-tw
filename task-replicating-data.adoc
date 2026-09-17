@@ -18,6 +18,7 @@ summary: 您可以透過選擇一次性資料複製進行資料傳輸，或選�
 
 
 
+[[step-1-review-data-replication-requirements]]
 == 步驟 1：審查資料複製要求
 
 在複製資料之前，您應該確認符合Cloud Volumes ONTAP、本機ONTAP叢集或Amazon FSx for ONTAP的特定要求。
@@ -25,10 +26,10 @@ summary: 您可以透過選擇一次性資料複製進行資料傳輸，或選�
 系統:: 如果您還沒有這樣做，您需要為資料複製關係中的來源和目標建立系統。
 +
 --
-* https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html["建立Amazon FSx for ONTAP系統"^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-overview-cvo.html["建立Cloud Volumes ONTAP系統"^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-adding-systems.html["新增現有的Cloud Volumes ONTAP系統"^]
-* https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html["發現ONTAP集群"^]
+* https://docs.netapp.com/us-en/storage-management-fsx-ontap/start/task-getting-started-fsx.html["建立Amazon FSx for ONTAP系統"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-overview-cvo.html["建立Cloud Volumes ONTAP系統"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-adding-systems.html["新增現有的Cloud Volumes ONTAP系統"^]
+* https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html["發現ONTAP集群"^]
 
 
 --
@@ -74,6 +75,7 @@ Amazon FSx for ONTAP 的特定需求::
 
 
 
+[[step-2-replicate-data-between-systems]]
 == 步驟 2：在系統之間複製數據
 
 您可以透過選擇一次性資料複製來複製數據，這可以幫助您將資料移入和移出雲端，或選擇定期計劃，這可以幫助災難復原或長期保留。

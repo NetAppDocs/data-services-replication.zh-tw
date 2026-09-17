@@ -4,8 +4,9 @@
 
 
 
+[[fsx-for-ontap-to-cloud-volumes-ontap]]
 === FSx for ONTAP到Cloud Volumes ONTAP
 
 現在您可以將資料從Amazon FSx for ONTAP檔案系統複製到Cloud Volumes ONTAP。
 
-https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何設定資料複製"] 。
+link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["了解如何設定資料複製"]。

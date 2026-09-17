@@ -18,40 +18,61 @@ summary: 了解NetApp Replication的新功能。
 
 
 
+[[13-april-2026]]
+== 2026 年 4 月 13 日
+
+
+
+[[replication-management-for-existing-relationships-with-fsx-for-ontap]]
+=== 使用 FSx for ONTAP 管理現有關係的複寫
+
+作為來源或目標的 FSx for ONTAP 檔案系統的複寫關係管理現已納入 NetApp Workload Factory。
+
+link:https://docs.netapp.com/us-en/data-services-replication/task-managing-replication.html["管理資料複製"]
+
+
+
+[[06-october-2025]]
 == 2025年10月6日
 
 
 
+[[bluexp-replication-is-now-netapp-replication]]
 === BlueXP replication現已更名為NetApp Replication
 
 BlueXP replication已重新命名為NetApp Replication。
 
 
 
+[[bluexp-is-now-netapp-console]]
 === BlueXP現在是NetApp Console
 
 NetApp Console建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp Data Services，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。
 
-有關更改的詳細信息，請參閱link:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp Console發行說明"]。
+如需變更的詳細資訊，請參閱 link:https://docs.netapp.com/us-en/console-relnotes/index.html["NetApp Console發行說明"]。
 
 
 
+[[18-september-2022]]
 == 2022年9月18日
 
 
 
+[[fsx-for-ontap-to-cloud-volumes-ontap]]
 === FSx for ONTAP到Cloud Volumes ONTAP
 
 現在您可以將資料從Amazon FSx for ONTAP檔案系統複製到Cloud Volumes ONTAP。
 
-https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何設定資料複製"] 。
+link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["了解如何設定資料複製"]。
 
 
 
+[[31-july-2022]]
 == 2022年7月31日
 
 
 
+[[fsx-for-ontap-as-the-data-source]]
 === FSx for ONTAP作為資料來源
 
 現在您可以將資料從Amazon FSx for ONTAP檔案系統複製到下列目標：
@@ -60,28 +81,30 @@ https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了
 * 本地ONTAP集群
 
 
-https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何設定資料複製"] 。
+link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["了解如何設定資料複製"]。
 
 
 
+[[02-september-2021]]
 == 2021年9月2日
 
 
 
+[[support-for-amazon-fsx-for-ontap]]
 === 支援Amazon FSx for ONTAP
 
 現在您可以將資料從Cloud Volumes ONTAP系統或本機ONTAP叢集複製到Amazon FSx for ONTAP檔案系統。
 
-https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何設定資料複製"] 。
+link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["了解如何設定資料複製"]。
 
 
 
+[[05-may-2021]]
 == 2021年5月5日
 
 
 
+[[redesigned-interface]]
 === 重新設計的介面
 
 我們重新設計了複製功能，使其易於使用並匹配使用者介面的當前外觀和感覺。
-
-image:https://raw.githubusercontent.com/NetAppDocs/bluexp-replication/main/media/replication.gif["重新設計的「複製」標籤的螢幕截圖，其中顯示了磁碟區關係清單。"]

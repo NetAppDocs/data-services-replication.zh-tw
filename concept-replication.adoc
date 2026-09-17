@@ -18,6 +18,7 @@ NetApp SnapMirror透過 LAN 或 WAN 高速複製數據，因此您可以在虛�
 
 
 
+[[netapp-console]]
 == NetApp Console
 
 可以透過NetApp Console存取NetApp Replication 。
@@ -26,10 +27,11 @@ NetApp Console提供企業級跨本機和雲端環境的NetApp儲存和資料服
 
 您不需要許可證或訂閱即可開始使用NetApp Console，並且只有當您需要在雲端部署控制台代理程式以確保與儲存系統或NetApp資料服務的連線時才需要付費。但是，一些可從控制台存取的NetApp資料服務是需要授權或基於訂閱的。
 
-詳細了解 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["NetApp Console"]。
+深入瞭解 https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html["NetApp Console"]。
 
 
 
+[[features]]
 == 特徵
 
 * 在ONTAP儲存系統之間複製數據，以支援到雲端或雲端之間的備份和災難復原。
@@ -39,12 +41,14 @@ NetApp Console提供企業級跨本機和雲端環境的NetApp儲存和資料服
 
 
 
+[[cost]]
 == 成本
 
 NetApp不會向您收取使用NetApp Replication 的費用，但您需要向您的雲端供應商查詢適用的資料入口和出口費用。
 
 
 
+[[supported-systems]]
 == 支援的系統
 
 NetApp Replication支援以下類型的系統之間的資料複製。
@@ -79,6 +83,7 @@ NetApp Replication支援以下類型的系統之間的資料複製。
 |===
 
 
+[[how-data-replication-works]]
 == 資料複製的工作原理
 
 NetApp Replication使用SnapMirror和SnapVault技術簡化了不同ONTAP系統上的磁碟區之間的資料複製。您只需識別來源磁碟區和目標卷，然後選擇複製策略和計劃。
@@ -90,6 +95,7 @@ NOTE: 基線傳輸包括來源資料的完整副本。後續傳輸包含來源�
 
 
 
+[[supported-data-protection-configurations]]
 == 支援的資料保護配置
 
 NetApp Replication支援簡單、扇出和級聯資料保護配置：
@@ -101,9 +107,10 @@ NetApp Replication支援簡單、扇出和級聯資料保護配置：
 
 
 
+[[replicate-data-using-netapp-backup-and-recovery]]
 == 使用NetApp Backup and Recovery複製數據
 
-從NetApp Console代理 3.9.31 版本開始， NetApp Backup and Recovery允許您使用SnapMirror和SnapVault技術在單獨的ONTAP系統上的磁碟區之間複製資料。因此，如果您打算將資料複製到其他ONTAP系統，並且還希望將相同資料建立到物件儲存的備份，則可能需要使用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-ontap-backup-to-cloud.html["NetApp Backup and Recovery"^]這樣您就可以透過單一服務來管理您的資料保護需求。
+從 NetApp Console 代理程式 3.9.31 版本開始，NetApp Backup and Recovery 可讓您使用 SnapMirror 和 SnapVault 技術，在分隔的 ONTAP 系統上的磁碟區之間複寫資料。因此，如果您打算將資料複寫到其他 ONTAP 系統，並且還希望將相同的資料備份到物件儲存，則可能會想要使用 https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["NetApp Backup and Recovery"^]，以便透過單一服務管理您的資料保護需求。
 
 目前，以下功能僅在NetApp Replication中支援 - 使用NetApp Backup and Recovery的複製功能時不受支援。
 
