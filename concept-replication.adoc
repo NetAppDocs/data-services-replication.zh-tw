@@ -23,9 +23,9 @@ NetApp SnapMirror透過 LAN 或 WAN 高速複製數據，因此您可以在虛�
 
 可以透過NetApp Console存取NetApp Replication 。
 
-NetApp Console 提供企業級的集中式管理，涵蓋內部部署和雲端環境中的 NetApp 儲存設備和資料服務。存取和使用 NetApp 資料服務需要使用 Console。作為管理介面，它可讓您從單一介面管理許多儲存資源。Console 管理員可以控制企業內所有系統對儲存設備和服務的存取。
+控制台在企業級層級提供跨內部部署與雲端環境的 NetApp 儲存設備與資料服務的集中式管理。存取與使用 NetApp 資料服務需要控制台。作為管理介面，它使您能夠從一個介面管理許多儲存資源。控制台管理員可以控制企業內所有系統對儲存設備與服務的存取。
 
-您不需要許可證或訂閱即可開始使用NetApp Console，並且只有當您需要在雲端部署控制台代理程式以確保與儲存系統或NetApp資料服務的連線時才需要付費。但是，一些可從控制台存取的NetApp資料服務是需要授權或基於訂閱的。
+您無需許可證或訂閱即可開始使用控制台。只有當您需要在雲端部署控制台代理程式以確保與儲存系統或 NetApp 資料服務的連線時，才會產生費用。但是，某些可透過控制台存取的 NetApp 資料服務需要獲得許可或訂閱才能使用。
 
 深入瞭解 https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html["NetApp Console"]。
 
@@ -36,7 +36,7 @@ NetApp Console 提供企業級的集中式管理，涵蓋內部部署和雲端�
 
 * 在ONTAP儲存系統之間複製數據，以支援到雲端或雲端之間的備份和災難復原。
 * 透過高可用性確保您的 DR 環境的可靠性。
-* ONTAP儲存之間的高效區塊級複製快速且高效，並具有用於 DR 和備份的細粒度還原點。
+* ONTAP 儲存系統之間的高效區塊層級複寫快速且有效率，並具有精細的恢復點，可用於災難恢復和備份。
 
 
 
@@ -86,7 +86,7 @@ NetApp Replication支援以下類型的系統之間的資料複製。
 [[how-data-replication-works]]
 == 資料複製的工作原理
 
-NetApp Replication使用SnapMirror和SnapVault技術簡化了不同ONTAP系統上的磁碟區之間的資料複製。您只需識別來源磁碟區和目標卷，然後選擇複製策略和計劃。
+NetApp Replication 簡化了使用 SnapMirror 和 SnapVault 技術在分隔的 ONTAP 系統上的 Volume 之間的資料複寫。若要設定複寫，您只需識別來源 Volume 和目的地 Volume，然後選擇複寫原則和排程。
 
 對於Cloud Volumes ONTAP， NetApp Replication會購買所需的磁碟、設定關係、套用複製策略，然後啟動磁碟區之間的基準傳輸。
 
@@ -110,13 +110,12 @@ NetApp Replication支援簡單、扇出和級聯資料保護配置：
 [[replicate-data-using-netapp-backup-and-recovery]]
 == 使用NetApp Backup and Recovery複製數據
 
-從 NetApp Console 代理程式 3.9.31 版本開始，NetApp Backup and Recovery 可讓您使用 SnapMirror 和 SnapVault 技術，在分隔的 ONTAP 系統上的磁碟區之間複寫資料。因此，如果您打算將資料複寫到其他 ONTAP 系統，並且還希望將相同的資料備份到物件儲存，則可能會想要使用 https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["NetApp Backup and Recovery"^]，以便透過單一服務管理您的資料保護需求。
+link:https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-protect-overview.html["NetApp Backup and Recovery"^] 可讓您在分隔的 ONTAP 系統上的 Volume 之間複寫資料，同時將相同的資料備份到物件儲存。如果您想要在單一服務中管理相同 ONTAP 資料的複寫與備份到物件保護，請考慮使用 NetApp Backup and Recovery。
 
-NetApp Backup and Recovery 不支援 NetApp Replication 中提供的下列功能：
+NetApp Replication 支援下列 Backup and Recovery 中未提供的功能。
 
-* 不支援從磁碟區 A 到磁碟區 B，再從磁碟區 B 到磁碟區 C 的級聯配置。
-* 不支援將資料複製到 FSx for ONTAP 系統或從 FSx for ONTAP系統複製資料。
-* 不支援創建卷的一次性複製。
+* Backup and Recovery 目前不支援將資料複寫到 FSx for ONTAP 系統或從 FSx for ONTAP 系統複寫資料。
+* Backup and Recovery 不支援建立 Volume 的一次性複寫。
 
 
-因此，如果您需要任何此功能，請使用NetApp Replication。
+此外，級聯關係在複寫中更容易設定。如果您需要這些功能，請使用 NetApp Replication。
