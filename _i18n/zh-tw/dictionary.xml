@@ -434,4 +434,7 @@
   <block id="3f3dcd61b391fa4750b25ad012b7cfc6" category="list-text">Backup and Recovery 目前不支援將資料複寫到 FSx for ONTAP 系統或從 FSx for ONTAP 系統複寫資料。</block>
   <block id="f61da899badda17c43e8e5da775d7511" category="list-text">Backup and Recovery 不支援建立 Volume 的一次性複寫。</block>
   <block id="2601f42c01172c0b06c8546b71254630" category="paragraph">此外，級聯關係在複寫中更容易設定。如果您需要這些功能，請使用 NetApp Replication。</block>
+  <block id="d9522f626d1f11986cc977648b439857" category="doc">NetApp Replication 的法律聲明</block>
+  <block id="191ecd665d4f23df6751be84c28cd454" category="doc">取得 NetApp Replication 方面的協助</block>
+  <block id="ae26b22ee1188368a5b1e99847061389" category="doc">註冊以取得 NetApp Replication 支援</block>
 </blocks>
